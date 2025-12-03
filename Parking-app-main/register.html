@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta</title>
+    <link rel="icon" type="image/png" href="imagenes/coche.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<html>
+
+<body>
+    <div class="form-page">
+        <div class="form-container">
+
+            <div class="auth-logo">
+                <img src="imagenes/coche.png" class="auth-logo-img" alt="Parkify logo">
+                <span class="auth-logo-text">PARKIFY</span>
+            </div>
+
+            <h2>Crear cuenta</h2>
+            <form id="register">
+                <!--Input nombre completo-->
+                <div class="input-group">
+                    <img src="assets/forms/user.png" class="icon">
+                    <input type="text" id="name-input" placeholder="Nombre completo" required>
+                </div>
+
+                <!--Input email -->
+                <div class="input-group">
+                    <img src="assets/forms/email.jpg" class="icon">
+                    <input type="email" id="email-input" placeholder="Correo electrónico" required>
+                </div>
+
+                <!--Input numero de telefono-->
+                <div class="input-group">
+                    <img src="assets/forms/phone.png" class="icon">
+                    <input type="tel" id="phone-input" placeholder="Número de teléfono" required>
+                </div>
+
+                <!--Input contraseña-->
+                <div class="input-group">
+                    <img src="assets/forms/password.png" class="icon">
+                    <input type="password" id="password-input" placeholder="Contraseña" required>
+                </div>
+
+                <!--Input confirmar contraseña-->
+                <div class="input-group">
+                    <img src="assets/forms/password.png" class="icon">
+                    <input type="password" id="confirm-password-input" placeholder="Confirmar contraseña" required>
+                </div>
+
+                <button type="submit">Crear</button>
+            </form>
+            <p>¿Ya tienes una cuenta? <button onclick="login()" style="background: none; color: blue;">Iniciar sesion</button></p>
+        </div>
+    </div>
+    <script src="register.js"></script>
+</body>
+
+</html>

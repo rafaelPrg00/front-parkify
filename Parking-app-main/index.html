@@ -1,0 +1,95 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Parkify</title>
+    <title>Parkify</title>
+
+    <link rel="icon" type="image/png" href="imagenes/coche.png">
+
+    <link rel="apple-touch-icon" href="images/tu_logo_180.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="barra-sitio-simple">
+        <a href="index.html" class="logo-link">
+            <img src="imagenes/coche.png" alt="Logo Parkify" class="logo-pequeno">
+            <span class="nombre-sitio">Parkify</span>
+        </a>
+        <a href="index.html" class="enlace-casa">
+            <img src="imagenes/lococasa2.png" alt="Inicio" class="icono-casa-img">
+        </a>
+    </div>
+
+     <header class ="cabecera-principal">
+        <div class = "header-content">
+            <div class = "textos-header">
+                <h1> Parkify</h1>
+                <p> Encuentra tu parking facilmente</p>
+            </div>
+        </div>
+        
+     </header>
+
+    <main>
+        <section class="introduccion-parkings">
+            <h2>Los mejores parkings cerca de ti</h2>
+            <p>Aquí puedes encontrar y reservar plaza en nuestros dos parkings exclusivos: ETSII y Psicología. Ofrecemos tarifas competitivas.</p>
+            <p>¡Reserva ahora tu plaza y olvídate de buscar aparcamiento!</p>
+        </section>
+
+        <section class="lista-parkings">
+            
+            <article class="parking-card">
+
+                <div class="card-imagen">
+                    <img src="imagenes/etsii.jpg" alt="Parking ETSII">
+                </div>
+
+                <div class="card-contenido">
+
+                    <h3>Parking ETSII</h3>
+                    <p>Ubicado estratégicamente en el corazón del Campus de Reina Mercedes, este parking es la opción ideal para estudiantes y profesores. Se encuentra junto a la Escuela Técnica <Superior>
+                    <n>de Ingeniería Informática (ETSII) y proporciona acceso directo a las Facultades de Física, Arquitectura Técnica y Matemáticas, así como al emblemático Búnker de Matemáticas y al CRAI (Centro de Recursos para el Aprendizaje y la Investigación). Un espacio seguro, accesible y abierto 24/7.</p></n> 
+                    <div class="parking-ubicacion">
+                        <span class="icono-chincheta" role="img" aria-label="Chincheta">📍</span>
+                        <span class="direccion">Av. Reina Mercedes, s/n, 41012 Sevilla</span>
+                    </div>
+                    <a onclick="acceso('index_etsii.html')" class="boton-parking">Conoce el parking</a>
+
+                </div>
+            </article>
+
+            <article class="parking-card">
+                <div class="card-imagen">
+                    <img src="imagenes/psicologia.png" alt="Parking Psicología">
+                </div>
+                <div class="card-contenido">
+                    <h3>Parking Psicología</h3>
+                    <p>Ubicado estratégicamente en el Campus de Ramón y Cajal, este parking ofrece una solución cómoda y segura. Se encuentra junto a la Facultad de Psicología, 
+                        <n> un acceso inmejorable a las Facultades de Derecho, Turismo, y Ciencias del Trabajo/Empresariales. Es perfecto para visitar el campus, el área circundante de Nervión o la zona de Pirotecnia.</p><n>
+                <div class="parking-ubicacion">
+                    <span class="icono-chincheta" role="img" aria-label="Chincheta">📍</span>
+                    <span class="direccion">C. Camilo Jose Cela , s/n , 41018 , Sevilla</span>
+                </div>
+                    <a onclick="acceso('index_psicologia.html')" class="boton-parking">Conoce el parking</a>
+                </div>
+            </article>
+        
+        </section>
+    </main>
+    <script src = "app.js"></script>
+</body>
+</html>

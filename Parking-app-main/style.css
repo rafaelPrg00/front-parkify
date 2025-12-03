@@ -1,0 +1,356 @@
+body {
+    font-family: Arial,sans-serif;
+    text-align: center;
+    background-color : white;
+    margin: 0;
+    padding: 0;
+}
+/* Cabecera GLOBAL*/
+
+.barra-sitio-simple {
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo casi negro para contraste */
+    padding: 10px 30px; /* Un poco de espacio arriba/abajo y a los lados */
+    display: flex; /* Activa Flexbox */
+    align-items: center; /* Alinea verticalmente el logo y el texto */
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    justify-content: space-between; 
+}
+
+.barra-sitio-simple .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; 
+}
+
+.barra-sitio-simple .logo-pequeno {
+    height: 30px; 
+    width: auto;
+    margin-right: 10px;
+}
+
+.barra-sitio-simple .nombre-sitio {
+    font-size: 24px;
+    font-weight: bold;
+    color: white; 
+    font-family: 'Bebas Neue', sans-serif; 
+}
+.enlace-casa {
+    display: flex;
+    align-items: center;
+    font-size: 24px; 
+    text-decoration: none;
+    color: white; 
+    transition: color 0.3s;
+}
+
+.enlace-casa:hover {
+    color: #FF4500; 
+}
+.enlace-casa .icono-casa-img {
+    height: 30px; /* Ajusta este valor para el tamaño deseado (igual que el logo del coche) */
+    width: auto; /* Mantiene la proporción de la imagen */
+    transition: transform 0.3s ease; /* Efecto de transición para el hover */
+}
+
+.enlace-casa:hover .icono-casa-img {
+    transform: scale(1.1); /* Ligeramente más grande al pasar el ratón */
+    /* Puedes añadir también un filtro si la imagen lo permite, por ejemplo: */
+    /* filter: brightness(1.2); */ 
+}
+
+/*CABECERA*/
+
+.cabecera-principal{
+    background-color: rgb(180, 15, 15);
+    background-size: 600% 600%; 
+    animation: HeaderGradient 15s ease infinite; 
+    background-repeat: no-repeat;
+    min-height: 25vh; /* ESTO MANTIENE EL HEADER GRANDE AQUÍ */
+    padding: 50px 20px;
+}
+
+@keyframes HeaderGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes TitleZoom {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.header-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:40px;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.textos-header h1{
+    margin:0 ;
+    font-size: 150px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 800;
+    color: azure;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    animation: TitleZoom 1s ease-out forwards;
+}
+.textos-header p {
+    margin: 15px 0 0 0 ;
+    font-size: 35px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic; 
+    color:whitesmoke;
+    animation: TitleZoom 1s ease-out forwards;
+
+}
+
+/*INTRODUCCION*/
+
+.introduccion-parkings {
+    max-width: 1000px;
+    margin:40px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+.introduccion-parkings h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: black;
+    font-family: 'Montserrat', sans-serif; 
+}
+.introduccion-parkings p {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: black; 
+    font-family: 'Montserrat', sans-serif; 
+}
+
+
+/*Tarjetas parking*/
+
+.lista-parkings {
+
+    max-width: 1000px; 
+    margin: 50px auto; 
+    padding: 0 20px;
+}
+
+.parking-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    align-items: center; 
+    flex-direction: row;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.parking-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
+}
+
+.parking-card:nth-child(even) { 
+    flex-direction: row-reverse; /* Invierte el orden: Imagen a la derecha */
+}
+
+.card-imagen {
+    flex: 0 0 35%; /* Ocupa el 35% del ancho */
+    max-height: 250px; 
+    overflow: hidden;
+    border-radius: 8px;
+    min-height: 200px;
+}
+.card-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.card-contenido {
+    flex: 1; 
+    padding: 20px 30px;
+    text-align: center;
+}
+.card-contenido h3 {
+    font-size: 40px;
+    margin-top: 0;
+    position: relative; 
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: black;
+    font-family: 'Montserrat', sans-serif; 
+}
+.card-contenido h3::after{
+    content: "";
+    display: block;
+    width: 350px ;
+    height: 3px;
+    background-color: black;
+    margin: 5px auto 0 auto;
+}
+.card-contenido p {
+    font-size: 15px;
+    line-height: 1.6; 
+    color: black;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif; 
+}
+.parking-ubicacion {
+    font-size: 18px; 
+    margin: 10px 0 20px 0;
+    color: black;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.parking-ubicacion .icono-chincheta {
+    font-size: 24px; 
+    margin-right: 8px; 
+}
+
+.parking-ubicacion .direccion {
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold;
+}
+
+.card-contenido img {
+    /* Limita la altura de CUALQUIER imagen que esté en el bloque de texto */
+    max-height: 100px; 
+    width: auto;
+    /* Los convierte a elementos en línea para que no rompan el texto */
+    display: inline-block; 
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.boton-parking {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-parking:hover {
+    background-color: rgb(127, 31, 31); /* Efecto hover */
+}
+
+/*Solo para los formularios*/
+.form-page {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/*Caja de form*/
+.form-page .form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    width: 320px;
+    text-align: center;
+}
+
+/*Grupo de input con icono*/
+.form-page .input-group {
+    position: relative;
+    width: 100%;
+    margin-top: 12px;
+}
+
+/*Icono dentro del input*/
+.form-page .input-group .icon {
+    position: absolute;
+    top: 50%;
+    left: 9px;
+    width: 30px;
+    height: 30px;
+    transform: translateY(-50%);
+    opacity: 0.7;
+}
+
+/*Inputs del form*/
+.form-page .input-group input {
+    width: 100%;
+    padding: 12px;
+    padding-left: 45px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/*Botón*/
+.form-page button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-page button:hover {
+    background: #125ba0;
+}
+
+.form-page .form-container a {
+    display: block;
+    margin-top: 10px;
+}
+
+.form-page p {
+    margin-top: 20px;
+}
+.form-page h1 {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 42px;
+    letter-spacing: 1px;
+}
+.form-page h2 {
+    margin-top: 10px;
+}
+
+/* Logo pequeño dentro de login/register */
+.auth-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.auth-logo-img {
+    height: 35px;
+    width: auto;
+}
+
+.auth-logo-text {
+    font-size: 34px;
+    font-weight: 900;
+    font-family: 'Bebas Neue', sans-serif;
+    color: black;
+}
+

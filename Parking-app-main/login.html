@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="imagenes/coche.png">
+</head>
+
+<body>
+
+    <div class="form-page">
+        <div class="form-container">
+
+            <div class="auth-logo">
+                <img src="imagenes/coche.png" class="auth-logo-img" alt="Parkify logo">
+                <span class="auth-logo-text">PARKIFY</span>
+            </div>
+
+            <h2>Iniciar sesión</h2>
+            <form>
+                <!--Input email-->
+                <div class="input-group">
+                    <img src="assets/forms/email.jpg" class="icon">
+                    <input type="email" id="email-input" placeholder="Correo electrónico" required>
+                </div>
+
+                <!--Input contraseña-->
+                <div class="input-group">
+                    <img src="assets/forms/password.png" class="icon">
+                    <input type="password" id="password-input" placeholder="Contraseña" required>
+                </div>
+
+                <button type="submit" onclick="login()">Entrar</button>
+            </form>
+            <p>¿No tienes cuenta? <button onclick="registrarse()" style="background: none; color: blue;">Regístrate</button></p>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>
