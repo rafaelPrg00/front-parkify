@@ -55,7 +55,7 @@ async function handleRegister(event) {
             alert(data.error || "No se ha podido crear la cuenta.");
             return;
         }
-    
+    localStorage.setItem("UserId", data.user.usuario_id);
     window.location.href = destino;
     } catch (err) {
         console.error("Error conectando con el backend:", err);
