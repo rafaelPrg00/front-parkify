@@ -1,11 +1,13 @@
 "use strict";
 
+const API_BASE = "http://localhost:3000";
+
 function main() {
     const form = document.getElementById("register");
     form.onsubmit = handleRegister;
 }
 
-function handleRegister(event) {
+async function handleRegister(event) {
     event.preventDefault(); 
 
     const params = new URLSearchParams(window.location.search);
@@ -31,7 +33,34 @@ function handleRegister(event) {
         return;
     }
 
+    try {
+        const response = await fetch(`${API_BASE}/api/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                nombre: name,
+                password: passwd
+            })
+        });
+    let data = {};
+        try {
+            data = await response.json();
+        } catch (_) {
+        }
+
+        if (!response.ok) {
+            alert(data.error || "No se ha podido crear la cuenta.");
+            return;
+        }
+    
     window.location.href = destino;
+    } catch (err) {
+        console.error("Error conectando con el backend:", err);
+        alert("No se pudo conectar con el servidor. ¿Está el backend arrancado?");
+    }
 }
 
 function login(){
