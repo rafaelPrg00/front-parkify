@@ -10,7 +10,6 @@ imgEtsii.addEventListener('click',function(event){
 });
 */
 
-
 function acceso(dest){
     const userId = window.localStorage.getItem("UserId")
 
@@ -21,3 +20,4 @@ function acceso(dest){
         window.location.href = "login.html?dest="+ dest;
     }
 }
+

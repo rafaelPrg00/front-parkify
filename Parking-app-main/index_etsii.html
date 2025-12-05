@@ -55,7 +55,7 @@
         <h2 class="text-lg font-semibold mb-4">Selecciona horario</h2>
         <div class="flex gap-3 items-center mb-4">
           <label class="text-sm text-neutral-600">Fecha</label>
-          <input type="date" x-model="date"
+          <input type="date" id="fecha-input" x-model="date"
                  class="rounded-xl border px-3 py-2 text-sm" />
           <div class="ml-auto inline-flex items-center gap-2 rounded-xl border px-3 py-2 bg-green-50 border-green-200">
             <span class="h-2 w-2 rounded-full bg-green-500"></span>
@@ -67,12 +67,12 @@
           <div>
             <label class="block text-sm text-neutral-600 mb-1">Hora de entrada</label>
             <input type="time" min="07:00" max="23:00" x-model="start"
-                   class="w-full rounded-xl border px-3 py-2" />
+                   class="w-full rounded-xl border px-3 py-2" id="fecha-inicio-input" />
           </div>
           <div>
             <label class="block text-sm text-neutral-600 mb-1">Hora de salida</label>
             <input type="time" min="07:00" max="23:00" x-model="end"
-                   class="w-full rounded-xl border px-3 py-2" />
+                   class="w-full rounded-xl border px-3 py-2" id="fecha-fin-input" />
           </div>
         </div>
 
@@ -83,7 +83,7 @@
 
         <!-- BOTÓN CONSULTAR -->
         <div class="mt-4">
-          <button @click="checkAvailability"
+          <button onclick="consultaDisponibilidad(event)"
                   class="rounded-xl bg-neutral-900 text-white px-4 py-2 text-sm hover:bg-black">
             Consultar disponibilidad
           </button>
@@ -208,121 +208,6 @@
     </div>
 
   </main>
-
-
-  <!-- LÓGICA ALPINE.JS -->
-  <script>
-    function salir(){
-      window.localStorage.removeItem("UserId")
-      window.location.href = "index.html"
-    }
-    function parkingApp() {
-      return {
-        date: new Date().toISOString().slice(0,10),
-        start: '16:00',
-        end: '17:00',
-        loading: false,
-        spaces: [],        // seguimos usándolo para calcular counts
-        zones: [],
-        selectedZone: null,
-
-        vehicle: { plate: 'ABC-1234', model: 'Seat Ibiza' },
-
-        dotClass(zone){
-          return zone === 'verde'    ? 'bg-green-500'
-               : zone === 'amarilla' ? 'bg-yellow-400'
-               : zone === 'azul'     ? 'bg-blue-500'
-               : 'bg-neutral-400';
-        },
-
-        prettyDate(){
-          return new Date(this.date+'T00:00')
-            .toLocaleDateString('es-ES', { day:'numeric', month:'long' });
-        },
-        
-        openVehicleModal(){
-          this.tempVehicle = { ...this.vehicle };
-          this.showVehicleModal = true;
-        },
-
-        // Cerrar modal sin guardar
-        closeVehicleModal(){
-          this.showVehicleModal = false;
-        },
-
-        // Guardar cambios
-        saveVehicleModal(){
-          this.vehicle = { ...this.tempVehicle };
-          this.showVehicleModal = false;
-        },
-
-        invalidRange(){ return this.start >= this.end; },
-
-        minutes(){
-          const [sh,sm] = this.start.split(':').map(Number);
-          const [eh,em] = this.end.split(':').map(Number);
-          return Math.max(0, (eh*60+em)-(sh*60+sm));
-        },
-
-        costEuros(){ return (this.minutes()/60*2.5).toFixed(2); },
-
-        availabilityLabel(){
-          const pct = Math.min(95, 10 + Math.floor((this.date+this.start+this.end).length*7) % 80);
-          return pct + '% disponible';
-        },
-
-        // CONSULTAR DISPONIBILIDAD
-        async checkAvailability(){
-          this.loading = true;
-          await new Promise(r=>setTimeout(r,400));
-
-          // En producción esto vendría del backend
-          const mock = [
-            {label:'B1', zone:'verde'},
-            {label:'B2', zone:'verde'},
-            {label:'C1', zone:'amarilla'},
-            {label:'D9', zone:'azul'},
-            {label:'E3', zone:'verde'}
-          ];
-
-          const seed = (this.date+this.start+this.end)
-                        .split('').reduce((a,c)=>a+c.charCodeAt(0),0);
-
-          this.spaces = mock.slice(0, 2 + (seed % (mock.length-1)));
-
-          // Calcular cuántas plazas por zona
-          const counts = {};
-          this.spaces.forEach(s => {
-            counts[s.zone] = (counts[s.zone] || 0) + 1;
-          });
-
-          this.zones = [
-            { id:'principal', name:'Parking Principal', zone:'verde',    free:counts['verde'] || 0 },
-            { id:'sur',       name:'Parking Sur',       zone:'amarilla', free:counts['amarilla'] || 0 },
-            { id:'norte',     name:'Parking Norte',     zone:'azul',     free:counts['azul'] || 0 }
-          ];
-
-          // Seleccionamos por defecto la primera zona con plazas
-          this.selectedZone = this.zones.find(z => z.free > 0) || null;
-
-          this.loading = false;
-        },
-
-        confirm(){
-          if (this.invalidRange() || !this.selectedZone) return;
-
-          alert(
-            `Reserva (demo)\n` +
-            `Zona: ${this.selectedZone.name}\n` +
-            `Fecha: ${this.prettyDate()}\n` +
-            `Hora: ${this.start}-${this.end}\n` +
-            `Coste: ${this.costEuros()} €\n` +
-            `Vehículo: ${this.vehicle.plate}`
-          );
-        }
-      }
-    }
-  </script>
 
 </body>
 </html>
