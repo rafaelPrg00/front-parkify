@@ -12,7 +12,9 @@ imgEtsii.addEventListener('click',function(event){
 
 
 function acceso(dest){
-    if(window.localStorage.getItem("logueado") === "true"){
+    const userId = window.localStorage.getItem("UserId")
+
+    if(userId){
         window.location.href = dest;
     }
     else{
