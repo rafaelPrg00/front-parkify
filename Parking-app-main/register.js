@@ -16,7 +16,6 @@ async function handleRegister(event) {
     // Obtener inputs
     const name = document.getElementById("name-input").value.trim();
     const email = document.getElementById("email-input").value.trim();
-    const phone = document.getElementById("phone-input").value.trim();
     const passwd = document.getElementById("password-input").value;
     const passwd2 = document.getElementById("confirm-password-input").value;
     
